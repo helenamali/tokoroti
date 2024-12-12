@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Laporan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .link-button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .link-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard Laporan</h1>
+        <p>Selamat datang di sistem laporan. Pilih laporan yang ingin Anda lihat:</p>
+        <a href="{% url 'laporan_roti_terlaris' %}" class="link-button">Laporan Roti Terlaris</a>
+        <a href="{% url 'laporan_toko_terpopuler' %}" class="link-button">Laporan Toko Terpopuler</a>
+    </div>
+</body>
+</html>
