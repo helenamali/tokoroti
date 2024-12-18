@@ -29,6 +29,8 @@ class Pengunjung(models.Model):
     nama_depan = models.CharField(max_length=50)
     nama_belakang = models.CharField(max_length=50)
     pekerjaan = models.CharField(max_length=100)
+    # Tambahkan relasi ke Toko jika pengunjung terhubung langsung dengan toko
+    id_toko = models.ForeignKey(Toko, on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         verbose_name = "Pengunjung"

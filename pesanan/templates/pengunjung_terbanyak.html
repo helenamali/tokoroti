@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pengunjung dengan Pembelian Tertinggi</title>
+    <style>
+        /* Reset default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdf8f1; /* Warna latar cokelat muda */
+            color:rgb(0, 0, 0); /* Warna teks cokelat tua */
+            line-height: 1.6;
+        }
+
+        /* Header styling */
+        header {
+            background: linear-gradient(90deg,rgb(1, 110, 227),rgb(255, 255, 255)); /* Gradien cokelat muda */
+            color: white;
+            text-align: center;
+            padding: 30px 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom-left-radius: 50% 10px;
+            border-bottom-right-radius: 50% 10px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color:rgb(58, 63, 66); /* Cokelat tua */
+            margin-bottom: 10px;
+        }
+
+        /* Navigation styling */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color:rgb(0, 0, 0); /* Warna cokelat tua */
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color:rgb(255, 255, 255); /* Cokelat muda */
+            transition: all 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            background-color:rgb(160, 153, 153); /* Efek hover warna cokelat lebih gelap */
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Styling judul laporan */
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2rem;
+        }
+
+        /* Styling untuk tabel */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff; /* Latar belakang putih */
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        table th {
+            background-color:rgb(56, 109, 231); /* Warna header tabel */
+            color:rgb(28, 15, 8); /* Warna teks */
+            font-size: 1.1rem;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f2e3d5; /* Warna hover */
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 15px 0;
+            background-color: #5c3d2e;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            table {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Selamat Datang di Aplikasi Roti</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'tentang' %}">Tentang</a></li>
+                <li><a href="{% url 'roti_terjual_tertinggi' %}">Penjualan Tertinggi</a></li>
+                <li><a href="{% url 'pengunjung_terbanyak' %}">Toko Terpopuler</a></li>
+                <li><a href="{% url 'kontak' %}">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Judul Utama -->
+    <h1>Laporan Pengunjung dengan Pembelian Tertinggi</h1>
+
+    <!-- Tabel Laporan -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Pengunjung</th>
+                <th>Total Pembelian</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pengunjung in pengunjung_terbanyak %}
+                <tr>
+                    <td>{{ pengunjung.id_pengunjung__nama_depan }} {{ pengunjung.id_pengunjung__nama_belakang }}</td>
+                    <td>{{ pengunjung.total_pembelian }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">Tidak ada data pengunjung dengan pembelian tertinggi</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

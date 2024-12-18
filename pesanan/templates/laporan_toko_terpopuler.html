@@ -10,15 +10,15 @@
     <table border="1">
         <thead>
             <tr>
-                <th>Nama Pengunjung</th>
-                <th>Total Pesanan</th>
+                <th>Nama Toko</th>
+                <th>Jumlah Pengunjung</th>
             </tr>
         </thead>
         <tbody>
-            {% for toko in toko_terpopuler %}
+            {% for toko in toko_populer %}
             <tr>
-                <td>{{ toko.id_pengunjung__nama_depan }} {{ toko.id_pengunjung__nama_belakang }}</td>
-                <td>{{ toko.total_pesanan }}</td>
+                <td>{{ toko.nama_toko }}</td>
+                <td>{{ toko.jumlah_pengunjung }}</td>
             </tr>
             {% endfor %}
         </tbody>

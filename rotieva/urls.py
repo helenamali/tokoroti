@@ -14,12 +14,30 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
-from . import views
+# urls.py
+from django.contrib import admin
+from django.urls import path, include
+from pesanan.views import roti_terlaris, home, tentang, toko_terjual_tertinggi, kontak, roti_terjual_tertinggi, pengunjung_terbanyak
 
 urlpatterns = [
-    path('', views.index, name='index'),  # Rute untuk halaman utama
-    path('laporan/roti-terlaris/', views.laporan_roti_terlaris, name='laporan_roti_terlaris'),
-    path('laporan/toko-terpopuler/', views.laporan_toko_terpopuler, name='laporan_toko_terpopuler'),
+    path('admin/', admin.site.urls),
+    path('', home, name='home'),  # Halaman Home diakses dengan URL '/'
+    path('tentang/', tentang, name='tentang'),
+    path('roti-terlaris/', roti_terlaris, name='roti_terlaris'),
+    path('kontak/', kontak, name='kontak'),
+    # URL untuk Laporan Roti dengan Penjualan Tertinggi
+    path('laporan/roti-penjualan-tertinggi/', roti_terjual_tertinggi, name='roti_terjual_tertinggi'),
+    
+    # URL untuk Laporan Toko dengan Penjualan Tertinggi
+    path('laporan/toko-penjualan-tertinggi/', toko_terjual_tertinggi, name='toko_terjual_tertinggi'),
+    
+    # URL untuk Laporan Pengunjung dengan Pembelian Tertinggi
+    path('laporan/pengunjung-terbanyak/', pengunjung_terbanyak, name='pengunjung_terbanyak'),
+
 ]
+
+
+
+
+
 

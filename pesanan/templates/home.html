@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Utama</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Styling -->
+    <style>
+        /* Reset default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdf8f1; /* Warna latar cokelat muda */
+            color:rgb(0, 0, 0); /* Warna teks cokelat tua */
+            line-height: 1.6;
+        }
+
+        /* Header styling */
+        header {
+            background: linear-gradient(90deg,rgb(1, 110, 227),rgb(255, 255, 255)); /* Gradien cokelat muda */
+            color: white;
+            text-align: center;
+            padding: 30px 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom-left-radius: 50% 10px;
+            border-bottom-right-radius: 50% 10px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color:rgb(58, 63, 66); /* Cokelat tua */
+            margin-bottom: 10px;
+        }
+
+        /* Navigation styling */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color:rgb(0, 0, 0); /* Warna cokelat tua */
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color:rgb(255, 255, 255); /* Cokelat muda */
+            transition: all 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            background-color:rgb(160, 153, 153); /* Efek hover warna cokelat lebih gelap */
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Main content */
+        .main-content {
+            text-align: center;
+            margin: 50px auto;
+            max-width: 900px;
+            padding: 30px 20px;
+            background: #ffffff; /* Warna putih sebagai kontras */
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .main-content:hover {
+            transform: translateY(-10px);
+        }
+
+        .main-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color:rgb(14, 5, 0); /* Warna teks cokelat tua */
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            color:rgb(57, 55, 55); /* Warna teks cokelat medium */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px 10px;
+            margin-top: 40px;
+            background-color:rgb(48, 56, 100); /* Warna cokelat tua */
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                margin: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                margin: 20px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Selamat Datang di Aplikasi Roti</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'tentang' %}">Tentang</a></li>
+                <li><a href="{% url 'roti_terjual_tertinggi' %}">Penjualan Tertinggi</a></li>
+                <li><a href="{% url 'pengunjung_terbanyak' %}">Toko Terpopuler</a></li>
+                <li><a href="{% url 'kontak' %}">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>Informasi Lengkap Tentang Roti dan Toko Terpopuler!</h2>
+        <p>
+            Jelajahi berbagai laporan mengenai roti terbaik dan toko terpopuler di aplikasi kami. 
+            Silakan klik menu di atas untuk mengetahui informasi lebih lanjut.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Aplikasi Roti. All Rights Reserved.
+    </footer>
+</body>
+</html>

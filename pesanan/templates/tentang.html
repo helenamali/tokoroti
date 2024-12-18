@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Aplikasi</title>
+    <style>
+        /* Reset default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdf8f1; /* Warna latar cokelat muda */
+            color: #5c3d2e; /* Warna teks cokelat tua */
+            line-height: 1.6;
+        }
+
+        /* Header styling */
+        header {
+            background: linear-gradient(90deg,rgb(1, 110, 227),rgb(255, 255, 255)); /* Gradien cokelat muda */
+            color: white;
+            text-align: center;
+            padding: 30px 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom-left-radius: 50% 10px;
+            border-bottom-right-radius: 50% 10px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color:rgb(58, 63, 66); /* Cokelat tua */
+            margin-bottom: 10px;
+        }
+
+        /* Navigation styling */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color:rgb(0, 0, 0); /* Warna cokelat tua */
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color:rgb(255, 255, 255); /* Cokelat muda */
+            transition: all 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            background-color:rgb(160, 153, 153); /* Efek hover warna cokelat lebih gelap */
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Konten utama */
+        .content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color:rgb(255, 255, 255); /* Warna krem yang cocok dengan cokelat */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        /* Animasi fade-in */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content h2 {
+            text-align: center;
+            color:rgb(0, 0, 0); /* Cokelat */
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            color:rgb(0, 0, 0); /* Warna teks cokelat medium */
+            margin: 20px 0;
+        }
+
+        /* Styling untuk fitur utama */
+        ul {
+            list-style-type: square;
+            margin-top: 20px;
+        }
+
+        /* Button styling */
+        .content button {
+            background-color:rgb(12, 63, 230); /* Cokelat */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .content button:hover {
+            background-color:rgb(48, 58, 74); /* Cokelat muda */
+        }
+
+        /* Styling untuk responsive navbar */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                margin: 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .content {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header dan navbar -->
+    <header>
+        <h1>Selamat datang di Aplikasi Roti</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'tentang' %}">Tentang</a></li>
+                <li><a href="{% url 'roti_terjual_tertinggi' %}">Penjualan Tertinggi</a></li>
+                <li><a href="{% url 'pengunjung_terbanyak' %}">Toko Terpopuler</a></li>
+                <li><a href="{% url 'kontak' %}">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Konten tentang aplikasi -->
+    <div class="content">
+        <h2>Tentang Aplikasi Roti</h2>
+        <p>Selamat datang di aplikasi kami yang dirancang untuk membantu Anda memantau data penjualan roti dengan lebih mudah dan efektif. Aplikasi ini memungkinkan Anda untuk melihat laporan tentang roti terlaris, penjualan tertinggi, pengunjung terbanyak, dan banyak lagi.</p>
+
+        <p>Dengan aplikasi ini, Anda dapat mengakses berbagai laporan yang relevan dengan penjualan dan pemesanan roti secara real-time. Apakah Anda seorang pemilik toko roti atau pengelola penjualan roti, aplikasi ini akan memberikan wawasan yang bermanfaat untuk meningkatkan performa bisnis Anda.</p>
+
+        <h3>Fitur Utama:</h3>
+        <ul>
+            <li>Laporan Roti Terlaris</li>
+            <li>Laporan Penjualan Tertinggi</li>
+            <li>Laporan Pengunjung dengan Pembelian Tertinggi</li>
+            <li>Kontak</li>
+        </ul>
+
+        <p>Aplikasi ini dirancang dengan antarmuka yang sederhana dan mudah digunakan, memungkinkan Anda untuk mengakses data secara langsung dan membuat keputusan yang lebih baik untuk bisnis Anda.</p>
+
+        <h3>Tujuan Aplikasi:</h3>
+        <p>Tujuan utama aplikasi ini adalah untuk memberikan pemilik dan pengelola toko roti alat yang efektif dalam menganalisis data penjualan dan mengoptimalkan strategi bisnis mereka. Kami berharap aplikasi ini dapat membantu Anda mengelola toko roti dengan lebih baik dan meningkatkan kepuasan pelanggan Anda.</p>
+
+        <button id="learnMoreBtn">Pelajari Lebih Lanjut</button>
+    </div>
+
+    <script>
+        // JavaScript untuk interaksi
+        document.getElementById('learnMoreBtn').addEventListener('click', function() {
+            alert('Fitur tambahan akan segera hadir! Terima kasih telah menggunakan aplikasi kami.');
+        });
+    </script>
+</body>
+</html>
